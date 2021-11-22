@@ -1,0 +1,19 @@
+{
+  "name": "eizaburo-felica-plugin",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "eizaburo-felica-plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC"
+}

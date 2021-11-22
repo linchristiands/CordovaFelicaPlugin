@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="eizaburo-felica-plugin" version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>FelicaPlugin</name>
+    <js-module name="FelicaPlugin" src="www/FelicaPlugin.js">
+        <clobbers target="cordova.plugins.FelicaPlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="FelicaPlugin">
+                <param name="android-package" value="eizaburo.felica.plugin.FelicaPlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.NFC" />
+        </config-file>
+        <source-file src="src/android/FelicaPlugin.kt" target-dir="app/src/main/kotlin/eizaburo/felica/plugin/FelicaPlugin" />
+    </platform>
+    <platform name="ios">
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
+        <config-file parent="/*" target="config.xml">
+            <feature name="FelicaPlugin">
+                <param name="ios-package" value="FelicaPlugin" />
+            </feature>
+        </config-file>
+        <preference name="NFC_USAGE_DESCRIPTION" default="Read NFC Tags" />
+        <config-file target="*-Info.plist" parent="NFCReaderUsageDescription">
+            <string>$NFC_USAGE_DESCRIPTION</string>
+        </config-file>
+        <source-file src="src/ios/FelicaPlugin.swift" />
+    </platform>
+</plugin>
